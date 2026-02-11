@@ -1,1 +1,45 @@
-## Exemplos de testes usando Polars em ML
+## Exemplos de testes para estudos usando Polars em ML
+
+Exemplos práticos desenvolvidos durante meus estudos iniciais em ML, com foco em classificação e preparação de dados utilizando Polars e Scikit-Learn.
+
+O objetivo é aprender os conceitos fundamentais da área e praticar o uso em Python.
+
+---
+
+## Tecnologias Utilizadas
+
+- Python
+- Polars
+- Scikit-Learn
+
+## Conteúdos Praticados
+
+### Classificação Binária
+Exemplo 01: modelo que prevê se um cliente irá cancelar um serviço com base em tempo de uso e frequência de utilização.
+
+- Separação de variáveis de entrada e saída
+- Treinamento de modelo supervisionado
+- Avaliação com acurácia
+
+
+---
+
+### Classificação Multiclasse
+Exemplo 02: Uso do dataset Iris para classificar tipos de flores com base em medidas das pétalas e sépalas.
+
+- Classificação com múltiplas categorias
+- Uso de Random Forest
+- Separação treino e teste
+
+
+---
+
+### Classificação Multilabel
+Exemplo 03: classificação onde um item pode pertencer a múltiplas categorias ao mesmo tempo (ex: gêneros de filmes).
+
+- MultiOutputClassifier
+- Predição com múltiplos rótulos
+
+
+Observação:
+Este repositório possui finalidade educacional e faz parte do meu processo de aprendizado em ciência de dados e inteligência artificial.
