@@ -46,6 +46,8 @@ modelo.fit(X_train, y_train)
 y_pred = modelo.predict(X_test)
 y_prob = modelo.predict_proba(X_test)[:, 1]
 
+print(dataset"cancelou".value_counts())
+
 #matriz confusao
 matriz = confusion_matrix(y_test, y_pred)
 print("Matriz de confusão:")
