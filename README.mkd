@@ -21,6 +21,19 @@ Exemplo 01: modelo que prevê se um cliente irá cancelar um serviço com base e
 - Treinamento de modelo supervisionado
 - Avaliação com acurácia
 
+----------
+Exemplo 1.1: Exemplo inicial modificado para estudo. 
+- Exploração do dataset criado, treinando algumas funções em python.
+- Estudo de funções do polars para criação de novas colunas com novas features.
+
+-----------
+Exemplo 1.2: Exemplo inicial modificado para estudo.
+- Treinando o modelo usando nova variável. 
+
+Na análise comparativa com o exemplo 1, é possível perceber que o inicial apresentou mais acurácia geral, indicando melhor desempenho global.
+O modelo inicial apresentou mais quantidade de verdadeiros negativos e menos número de falsos positivos, indicando melhor capacidade de identificar clientes que não irão cancelar sem gerar alertas desnecessários. O modelo inicial apresentou melhor capacidade de detectar clientes que irão cancelar, reduzindo o risco de perda de receita. Esse resultado mostra que a variável horas_assistidas_mes possui maior poder preditivo do que sua versão uso_baixo.
+
+
 
 ---
 

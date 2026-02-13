@@ -1,3 +1,4 @@
+#treinando o exemplo 1 com nova variável
 import polars as pl
 import numpy as np
 import matplotlib.pyplot as plt
@@ -10,7 +11,7 @@ from sklearn.metrics import precision_score, recall_score
 from sklearn.metrics import roc_auc_score
 from sklearn.metrics import roc_curve
 
-
+#criando o dataset
 np.random.seed(42)
 
 n = 500
@@ -22,6 +23,26 @@ dataset = pl.DataFrame({
     "qtd_reclamacoes": np.random.randint(0, 5, n)
 })
 
+#criar uma nova coluna chamada cliente_novo
+
+dataset = dataset.with_columns(
+    (
+        pl.col("tempo_assinatura") < 6 
+    ).cast(pl.Int8).alias("cliente_novo")
+)
+print(dataset["cliente_novo"].value_counts())
+
+#criar uma variável derivada, chamado uso_baixo:
+
+dataset = dataset.with_columns(
+    (
+        pl.col("horas_assistidas_mes") < 30
+    ).cast(pl.Int8).alias("uso_baixo")
+)
+print(dataset["uso_baixo"].value_counts())
+
+
+#criação do target
 dataset = dataset.with_columns(
     (
         (pl.col("tempo_assinatura") < 6) |
@@ -30,7 +51,15 @@ dataset = dataset.with_columns(
     ).cast(pl.Int8).alias("cancelou")
 )
 
-X = dataset.drop("cancelou").to_pandas()
+
+#usando select para selecionar as colunas
+X = dataset.select([
+    "tempo_assinatura",
+    "valor_mensal",
+    "cliente_novo",
+    "uso_baixo",
+    "qtd_reclamacoes"
+]).to_pandas()
 y = dataset["cancelou"].to_pandas()
 
 #separação de treino e teste para evitar que o modelo memorize os dados
@@ -45,8 +74,6 @@ modelo.fit(X_train, y_train)
 #previsoes
 y_pred = modelo.predict(X_test)
 y_prob = modelo.predict_proba(X_test)[:, 1]
-
-print(dataset"cancelou".value_counts())
 
 #matriz confusao
 matriz = confusion_matrix(y_test, y_pred)
