@@ -87,8 +87,13 @@ print("Acurácia:", accuracy_score(y_test, y_pred))
 print("Precisão:", precision_score(y_test, y_pred))
 print("Recall:", recall_score(y_test, y_pred))
 
+#imprimindo os coeficintes de cada variável
+for nome, coef in zip(X.columns, modelo.coef_[0]):
+    print(nome, coef)
+
 #calculo roc-auc: Avalia a capacidade geral do modelo separar clientes que cancelam dos que não cancelam.
 print("ROC-AUC:", roc_auc_score(y_test, y_prob))
+66666666
 
 #plotando a curva ROC
 fpr, tpr, _ = roc_curve(y_test, y_prob)
